@@ -9,7 +9,8 @@
     	'ngMessages',
     	'ngAria',
     	'ui.router',
-    	'ui.bootstrap',
-    	'toastr'
+        'ui.bootstrap',
+        'toastr',
+    	'uiGmapgoogle-maps'
     	]);
 })();

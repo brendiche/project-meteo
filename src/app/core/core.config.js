@@ -3,7 +3,8 @@
 
   angular
     .module('core')
-    .config(config);
+    .config(config)
+    .config(googleMap);
 
   /** @ngInject */
   function config($logProvider, toastrConfig) {
@@ -16,6 +17,13 @@
     toastrConfig.positionClass = 'toast-top-right';
     
     toastrConfig.progressBar = true;
+  }
+
+  function googleMap(uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+        v: '2.3.3',
+        libraries: 'weather,geometry,visualization'
+    });
   }
 
 })();
