@@ -6,24 +6,23 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(users,toastr,uiGmapGoogleMapApi,$log) {
+  function MainController(toastr,uiGmapGoogleMapApi,$log) {
     var vm = this;
-    vm.users = users;
     vm.showToastr = showToastr ;
     vm.map = {
                 center: {
-                 latitude: 40.1451,
-                 longitude: -99.6680
+                 latitude: 48.84286537792912,
+                 longitude: 2.3620292968751073
                },
-                zoom: 5
+                zoom: 7
              };
 
 
      vm.marker = {
       id: 0,
       coords: {
-        latitude: 40.1451,
-        longitude: -99.6680
+        latitude: 48.84286537792912,
+        longitude: 2.3620292968751073
       },
       options: { draggable: true },
       events: {
@@ -46,12 +45,11 @@
 
     uiGmapGoogleMapApi.then(function(maps){
       $log.debug("maps : ",maps);
-      $log.debug("maps.Size : ",maps.Size);
+      // $log.debug("maps.Size : ",maps.Size);
     });
 
     function showToastr(){
-      var i = Math.trunc((Math.random()*10)/5);
-    	toastr.success('Hello world!',users[i].firstName+" "+users[i].lastName);
+    	toastr.success("lat: " + vm.marker.coords.latitude + ' ' + 'lon: ' + vm.marker.coords.longitude,'le pointeur');
     }
 
   }
