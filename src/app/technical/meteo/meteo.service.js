@@ -6,7 +6,7 @@
     .factory('meteoService',meteoService);
 
     /* @ngInject */
-    function meteoService(meteoDao, CONFIG){
+    function meteoService(meteoDao, $q, CONFIG){
 
         var weathers = {
             weathers : []
@@ -14,18 +14,13 @@
 
     	var service = {
             weathers : weathers,
-            getWeatherForCity : getWeatherForCity,
-            init : init
+            getWeatherForCity : getWeatherForCity
     	}
 
     	return service;
 
         function getWeatherForCity(city){
             return meteoDao.getWeatherForCity(city.lat,city.long);
-        }
-
-        function init(){
-            
         }
 
     }

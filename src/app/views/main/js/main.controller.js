@@ -26,13 +26,8 @@
     });
 
     vm.onClick = function(marker, eventName, model) {
-        // console.log(marker);
-        // console.log(eventName);
-        // console.log(model);
-
-            // console.log("Clicked!");
-            model.show = !model.show;
-        }
+        model.show = !model.show;
+    }
 
   }
 })();

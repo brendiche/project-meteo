@@ -5,15 +5,10 @@
     		<ui-gmap-windows show="show">
           <div class="detailWeather">
             <div ng-bind="model.city">
-              
             </div>
-            <div>
-              météo
-              
+            <div ng-bind="model.weather.weather[0].description">
             </div>
-            <div>
-              temptemp
-              
+            <div ng-bind="model.weather.main.temp">
             </div>
             <div>
               <button class="btn btn-info" ng-click="model.goDetail(model.city)">

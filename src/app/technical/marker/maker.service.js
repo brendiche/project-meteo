@@ -6,7 +6,7 @@
     .factory('markerService',markerService);
 
     /* @ngInject */
-    function markerService($q,$state,CONFIG){
+    function markerService(meteoService,$q,$state,CONFIG){
 
         var markers = {
             markers : []
@@ -33,12 +33,21 @@
                         $state.go('city',{"city" : cityToGo});
                     },
                     show : angular.equals(city,"Paris"),
+                    weather : meteoService.getWeatherForCity(city),
                     options: {
                         draggable: false
                     }
                   };
                 markers.markers.push(marker);
             }
+
+            $q.all(markers.markers.map(function(marker){return marker.weather;})).then(function(weathers){
+                for (var i = 0; i < weathers.length; i++) {
+                    weathers[i].main.temp = Math.round((weathers[i].main.temp-273)*10)/10+' °C';
+                    markers.markers[i].weather = weathers[i];
+                };
+            });
+
 
             deferred.resolve(markers.markers);
 

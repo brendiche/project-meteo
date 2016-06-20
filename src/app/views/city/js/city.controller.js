@@ -6,7 +6,8 @@
     .controller('CityController', CityController);
 
   /** @ngInject */
-  function CityController($log ) {
+  function CityController(marker, $log ) {
     var vm = this;
+    vm.marker = marker;
   }
 })();
