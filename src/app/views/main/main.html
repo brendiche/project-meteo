@@ -4,15 +4,17 @@
     	<ui-gmap-markers models="main.markers.markers" coords="'self'" icon="'bite'" click="main.onClick">
     		<ui-gmap-windows show="show">
           <div class="detailWeather">
-            <div ng-bind="model.city">
+            <div class="icon">
+              <i class="fa fa-tint"></i>
             </div>
-            <div ng-bind="model.weather.weather[0].description">
+            <div class="detail-city" ng-bind="model.city">
             </div>
-            <div ng-bind="model.weather.main.temp">
+            <div >
+              Il fait acutellement <span ng-bind="model.weather.main.temp"></span> et la météo annonce : <span ng-bind="model.weather.weather[0].description"></span>
             </div>
             <div>
-              <button class="btn btn-info" ng-click="model.goDetail(model.city)">
-                détail
+              <button class="btn detail-button" ng-click="model.goDetail(model.city)">
+                Détails
               </button>
             </div>
           </div>
