@@ -17,10 +17,6 @@
                 zoom: 6
              };
 
-    vm.onClick = function() {
-            vm.windowOptions.visible = !vm.windowOptions.visible;
-        };
-
     uiGmapGoogleMapApi.then(function(maps){
       $log.debug("maps : ",maps);
     });
