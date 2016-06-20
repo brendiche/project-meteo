@@ -3,7 +3,8 @@
 
   angular
     .module('views', [
-    	'views.main'
+    	'views.main',
+    	'views.city'
     	]);
 
 })();

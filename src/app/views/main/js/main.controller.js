@@ -6,51 +6,33 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(toastr,uiGmapGoogleMapApi,$log) {
+  function MainController(markerService,uiGmapGoogleMapApi,$log ) {
     var vm = this;
-    vm.showToastr = showToastr ;
+    vm.markers = markerService.markers;
     vm.map = {
                 center: {
-                 latitude: 48.84286537792912,
-                 longitude: 2.3620292968751073
+                 latitude: 46.61154451475838,
+                 longitude: 2.4718925781251073
                },
-                zoom: 7
+                zoom: 6
              };
 
-
-     vm.marker = {
-      id: 0,
-      coords: {
-        latitude: 48.84286537792912,
-        longitude: 2.3620292968751073
-      },
-      options: { draggable: true },
-      events: {
-        dragend: function (marker) {
-          $log.log('marker dragend');
-          var lat = marker.getPosition().lat();
-          var lon = marker.getPosition().lng();
-          $log.log(lat);
-          $log.log(lon);
-
-          vm.marker.options = {
-            draggable: true,
-            labelContent: "lat: " + vm.marker.coords.latitude + ' ' + 'lon: ' + vm.marker.coords.longitude,
-            labelAnchor: "100 0",
-            labelClass: "marker-labels"
-          };
-        }
-      }
-    };
+    vm.onClick = function() {
+            vm.windowOptions.visible = !vm.windowOptions.visible;
+        };
 
     uiGmapGoogleMapApi.then(function(maps){
       $log.debug("maps : ",maps);
-      // $log.debug("maps.Size : ",maps.Size);
     });
 
-    function showToastr(){
-    	toastr.success("lat: " + vm.marker.coords.latitude + ' ' + 'lon: ' + vm.marker.coords.longitude,'le pointeur');
-    }
+    vm.onClick = function(marker, eventName, model) {
+        // console.log(marker);
+        // console.log(eventName);
+        // console.log(model);
+
+            // console.log("Clicked!");
+            model.show = !model.show;
+        }
 
   }
 })();

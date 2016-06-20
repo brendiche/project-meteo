@@ -3,7 +3,9 @@
 
   angular
     .module('technical', [
-    	'technical.users'
+    	'technical.users',
+    	'technical.meteo',
+    	'technical.marker'
     	]);
 
 })();

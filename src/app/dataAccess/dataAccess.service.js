@@ -8,14 +8,15 @@
     /* @ngInject */
     function dataAccess($http){
     	var service = {
-            getUser : getUser
+            getWeatherForCity : getWeatherForCity
     	}
 
     	return service;
 
-        function getUser(){
+        function getWeatherForCity(lat,long){
             return $http.get('assets/db/db.json');
         }
+
     }
 
 })();

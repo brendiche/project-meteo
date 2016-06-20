@@ -2,6 +2,7 @@
   'use strict';
   angular
     .module('core', [
+        'constants',
     	'ngAnimate',
     	'ngCookies',
     	'ngTouch',

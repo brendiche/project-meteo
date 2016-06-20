@@ -12,12 +12,7 @@
         url: '/',
         templateUrl: 'app/views/main/main.html',
         controller: 'MainController',
-        controllerAs: 'main',
-        resolve:{
-          users: function(usersService){
-            return usersService.getUser();
-          }
-        }
+        controllerAs: 'main'
       });
 
   }

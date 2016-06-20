@@ -1,12 +1,44 @@
-[
 	{
-		"id":1,
-		"firstName":"Martin",
-		"lastName":"Dupont"
-	},
-	{
-		"id":2,
-		"firstName":"Jean",
-		"lastName":"Durant"
+		  "coord": {
+		    "lon": 2.34,
+		    "lat": 48.86
+		  },
+		  "weather": [
+		    {
+		      "id": 500,
+		      "main": "Rain",
+		      "description": "légères pluies",
+		      "icon": "10d"
+		    }
+		  ],
+		  "base": "cmc stations",
+		  "main": {
+		    "temp": 288.89,
+		    "pressure": 1019,
+		    "humidity": 93,
+		    "temp_min": 288.15,
+		    "temp_max": 289.82
+		  },
+		  "wind": {
+		    "speed": 8.22,
+		    "deg": 210
+		  },
+		  "rain": {
+		    "1h": 0.51
+		  },
+		  "clouds": {
+		    "all": 100
+		  },
+		  "dt": 1466423118,
+		  "sys": {
+		    "type": 3,
+		    "id": 211399,
+		    "message": 0.0036,
+		    "country": "FR",
+		    "sunrise": 1466394416,
+		    "sunset": 1466452673
+		  },
+		  "id": 6545270,
+		  "name": "Palais-Royal",
+		  "cod": 200
 	}
-]

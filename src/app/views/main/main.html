@@ -1,11 +1,31 @@
 <div class="container main">
   <div class="jumbotron text-center">
     <ui-gmap-google-map center='main.map.center' zoom='main.map.zoom'>
-      <ui-gmap-marker coords="main.marker.coords" options="main.marker.options" events="main.marker.events" idkey="main.marker.id">
-        </ui-gmap-marker>
+    	<ui-gmap-markers models="main.markers.markers" coords="'self'" icon="'bite'" click="main.onClick">
+    		<ui-gmap-windows show="show">
+          <div class="detailWeather">
+            <div ng-bind="model.city">
+              
+            </div>
+            <div>
+              météo
+              
+            </div>
+            <div>
+              temptemp
+              
+            </div>
+            <div>
+              <button class="btn btn-info" ng-click="model.goDetail(model.city)">
+                détail
+              </button>
+            </div>
+          </div>
+        </ui-gmap-windows>
+      </ui-gmap-markers>    	
     </ui-gmap-google-map>
-    <p class="" >
-      <button type="button" class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</button>
-    </p>
   </div>
 </div>
+
+<button ng-click="main.displayDetailCity('chatte')">aer</button>
+
