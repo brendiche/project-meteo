@@ -5,7 +5,7 @@
     		<ui-gmap-windows show="show">
           <div class="detailWeather">
             <div class="icon">
-              <i class="fa fa-tint"></i>
+              <i class="fa" ng-class='model.weather.weather[0].main'></i>
             </div>
             <div class="detail-city" ng-bind="model.city">
             </div>

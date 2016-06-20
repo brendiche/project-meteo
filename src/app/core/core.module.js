@@ -9,6 +9,7 @@
     	'ngSanitize',
     	'ngMessages',
     	'ngAria',
+        'ngTwitter',
     	'ui.router',
         'ui.bootstrap',
         'toastr',
