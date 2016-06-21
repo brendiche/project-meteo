@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(markerService,uiGmapGoogleMapApi,$log,$twitterApi ) {
+  function MainController(markerService,uiGmapGoogleMapApi,$log ) {
     var vm = this;
     vm.markers = markerService.markers;
     vm.map = {
@@ -27,13 +27,6 @@
         model.show = !model.show;
     }
 
-    vm.myClick = function (){
-        $twitterApi.searchTweets("%23meteoparis").then(function(data) {
-          console.log(data);
-        }, function(error) {
-          console.log('err: ' + error);
-        });
-    }
 
   }
 })();
