@@ -17,7 +17,8 @@
     "angular": "~1.5.3",
     "font-awesome": "~4.2.0",
     "angular-google-maps": "~2.3.3",
-    "ng-twitter-api": "^0.1.5"
+    "ng-twitter-api": "^0.1.5",
+    "satellizer": "^0.14.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.3"
