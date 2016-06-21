@@ -24,6 +24,9 @@
             }else{
               return {};
             }
+          },
+          tweets: function(tweetService, $stateParams){
+            return tweetService.getLastTweets($stateParams.city);
           }
         }
       });

@@ -14,14 +14,15 @@
     	var service = {
             getWeatherForCity : getWeatherForCity,
             initTwitter : initTwitter,
-            getLatestTweets : getLatestTweets
+            getLatestTweets : getLatestTweets,
+            clearCache : clearCache,
+            isReady : isReady
 
     	}
 
     	return service;
 
         function getWeatherForCity(lat,long){
-
             return $http.get('http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+long+'&APPID='+CONFIG.APP.APIKEYMETEO+'&lang=fr');
         }
 
@@ -47,35 +48,16 @@
         }
 
 
-        function connectTwitter() {
-            var deferred = $q.defer();
-            OAuth.popup("twitter", {
-                cache: true
-            }, function(error, result) {
-                // cache means to execute the callback if the tokens are already present
-                if (!error) {
-                    authorizationResult = result;
-                    deferred.resolve();
-                } else {
-                    //do something if there's an error
-
-                }
-            });
-            return deferred.promise;
-        }
-
         function clearCache() {
             OAuth.clearCache('twitter');
             authorizationResult = false;
         }
 
-        function getLatestTweets(maxId) {
+        function getLatestTweets(city) {
             //create a deferred object using Angular's $q service
             var deferred = $q.defer();
-            var url = '1.1/search/tweets.json?q=%23meteoparis ';
-            // if (maxId) {
-            //     url += '?max_id=' + maxId;
-            // }
+            var url = '1.1/search/tweets.json?q=%23meteo'+city.toLowerCase();
+          
             var promise = authorizationResult.get(url).done(function(data) {
                 // https://dev.twitter.com/docs/api/1.1/get/statuses/home_timeline
                 // when the data is retrieved resolve the deferred object
