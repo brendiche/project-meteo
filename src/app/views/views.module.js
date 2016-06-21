@@ -4,7 +4,8 @@
   angular
     .module('views', [
     	'views.main',
-    	'views.city'
+    	'views.city',
+    	'views.map'
     	]);
 
 })();

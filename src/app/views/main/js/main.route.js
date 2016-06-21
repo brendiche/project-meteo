@@ -8,11 +8,14 @@
   /** @ngInject */
   function routerConfig($stateProvider) {
     $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/views/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+      .state('app.main', {
+        views: {
+                    'content': {
+                        templateUrl: 'app/views/map/map.html',
+                        controller: 'mapController',
+                        controllerAs: 'map'
+                    }
+                }
       });
 
   }

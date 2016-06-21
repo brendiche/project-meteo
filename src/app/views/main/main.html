@@ -1,27 +1,10 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <p class="navbar-text">Signed in as Mark Otto</p>
+    <select class="form-control"></select>
+
+</nav>
 <div class="container main">
-  <div class="jumbotron text-center">
-    <ui-gmap-google-map center='main.map.center' zoom='main.map.zoom'>
-    	<ui-gmap-markers models="main.markers.markers" coords="'self'" icon="'bite'" click="main.onClick">
-    		<ui-gmap-windows show="show">
-          <div class="detailWeather">
-            <div class="icon">
-              <i class="fa" ng-class='model.weather.weather[0].main'></i>
-            </div>
-            <div class="detail-city" ng-bind="model.city">
-            </div>
-            <div >
-              Il fait acutellement <span ng-bind="model.weather.main.temp"></span> et la météo annonce : <span ng-bind="model.weather.weather[0].description"></span>
-            </div>
-            <div>
-              <button class="btn detail-button" ng-click="model.goDetail(model.city)">
-                Détails
-              </button>
-            </div>
-          </div>
-        </ui-gmap-windows>
-      </ui-gmap-markers>    	
-    </ui-gmap-google-map>
-  </div>
+  <div ui-view="content"></div>
 </div>
 
 

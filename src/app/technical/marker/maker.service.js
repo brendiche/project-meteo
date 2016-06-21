@@ -30,7 +30,7 @@
                     city : city,
                     templateUrl : "app/views/detailMeteo/detailMeteo.html",
                     goDetail:function(cityToGo){
-                        $state.go('city',{"city" : cityToGo});
+                        $state.go('app.main.city',{"city" : cityToGo});
                     },
                     show : angular.equals(city,"Paris"),
                     // weather : meteoService.getWeatherForCity(CONFIG.APP.CITIES[city]),
