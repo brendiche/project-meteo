@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-    <p class="navbar-text">Signed in as Mark Otto</p>
-    <select class="form-control"></select>
+    <p class="navbar-text" ng-if='main.city.display'><span ng-bind="main.city.city"></span> , il fait <span ng-bind="main.city.temp"></span> et la météo annonce : <span ng-bind="main.city.weather"></span></p>
+    <select class="form-control" ng-options="city.name for city in main.select.cities track by city.id" ng-model="main.select.city" ng-change="main.changeCity()"></select>
 
 </nav>
 <div class="container main">

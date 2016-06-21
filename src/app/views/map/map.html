@@ -10,7 +10,7 @@
             <div class="detail-city" ng-bind="model.city">
             </div>
             <div >
-              Il fait acutellement <span ng-bind="model.weather.map.temp"></span> et la météo annonce : <span ng-bind="model.weather.weather[0].description"></span>
+              Il fait acutellement <span ng-bind="model.weather.main.temp"></span> et la météo annonce : <span ng-bind="model.weather.weather[0].description"></span>
             </div>
             <div>
               <button class="btn detail-button" ng-click="model.goDetail(model.city)">
