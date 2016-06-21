@@ -8,11 +8,15 @@
   /** @ngInject */
   function routerConfig($stateProvider) {
     $stateProvider
-      .state('city', {
+      .state('app.main.city', {
         url: '/city/:city',
-        templateUrl: 'app/views/city/city.html',
-        controller: 'CityController',
-        controllerAs: 'city',
+        views:{
+          'content@app':{
+              templateUrl: 'app/views/city/city.html',
+              controller: 'CityController',
+              controllerAs: 'city'
+            }
+        },
         params : {
               city : null
         },
@@ -24,6 +28,9 @@
             }else{
               return {};
             }
+          },
+          tweets: function(tweetService, $stateParams){
+            return tweetService.getLastTweets($stateParams.city);
           }
         }
       });

@@ -3,9 +3,9 @@
 
   angular
     .module('technical', [
-    	'technical.users',
     	'technical.meteo',
-    	'technical.marker'
+    	'technical.marker',
+    	'technical.tweet'
     	]);
 
 })();

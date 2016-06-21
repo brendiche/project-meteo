@@ -1,15 +1,84 @@
 <div class="container city">
 	<div class="row">
-		<div class="col-xs-12 title">
+		<div class="col-xs-12 title text-center">
 			<span ng-bind='city.marker.city'></span>
 		</div>
 	</div>
 	<div class="row content">
-		<div class="col-xs-12">
-			
+		<div class="col-xs-4">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="info-bull pull-right">
+						<img src="assets/images/sunrise.png" alt="" class="sunrise"><br>
+						<span ng-bind="city.marker.weather.sys.sunrise *1000 | date : 'HH : mm'"></span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="info-bull pull-right">
+						<img src="assets/images/wind.png" alt="" class="wind"><br>
+						<span ng-bind="city.marker.weather.wind.speed"></span>  km/h
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="col-xs-12 tweets">
-			
+		<div class="col-xs-4 text-center">
+			<div class="main-info">
+				<i class="fa" ng-class='city.marker.weather.weather[0].main'></i><br>
+				<span ng-bind="city.marker.weather.main.temp"></span>
+			</div>
+			<span class="description" ng-bind="city.marker.weather.weather[0].description" ></span>
+		</div>
+		<div class="col-xs-4">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="info-bull">
+						<img src="assets/images/sunset.png" alt="" class="sunset"><br>
+						<span ng-bind="city.marker.weather.sys.sunset *1000 | date : 'HH : mm'"></span>
+					</div>
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="info-bull">
+						<img src="assets/images/pression.png" alt="" class="pression"><br>
+						<span ng-bind="city.marker.weather.main.pressure"></span> hPa
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container tweets">
+	<div class="row" ng-repeat="tweet in city.tweets.statuses" ng-if="city.tweets.statuses.length">
+		<div class="col-xs-6 profile-user">
+			<div class="row">
+				<div class="col-xs-4 text-center">
+					<img src="{{tweet.user.profile_image_url}}" class="image">
+				</div>
+				<div class="col-xs-8">
+					<div class="row">
+						<div class="col-xs-12 name">
+							<span ng-bind="tweet.user.name"></span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<span ng-bind="tweet.created_at"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-6 text-center tweet">
+			<span ng-bind="tweet.text"></span>
+		</div>
+	</div>
+	<div class="row" ng-if="!city.tweets.statuses.length">
+		<div class="col-xs-12 text-center none">
+			Aucun tweet
 		</div>
 	</div>
 </div>

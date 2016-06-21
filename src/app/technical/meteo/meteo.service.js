@@ -6,7 +6,7 @@
     .factory('meteoService',meteoService);
 
     /* @ngInject */
-    function meteoService(meteoDao, $q, CONFIG){
+    function meteoService(meteoDao){
 
         var weathers = {
             weathers : []
