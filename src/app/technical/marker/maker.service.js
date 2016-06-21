@@ -33,17 +33,17 @@
                         $state.go('city',{"city" : cityToGo});
                     },
                     show : angular.equals(city,"Paris"),
-                    weather : meteoService.getWeatherForCity(CONFIG.APP.CITIES[city]),
+                    // weather : meteoService.getWeatherForCity(CONFIG.APP.CITIES[city]),
+                    weather :{},
                     options: {
                         draggable: false
                     }
                   };
                 markers.markers.push(marker);
             }
-
             if(!localStorage.getItem("weathers")){
                 $q.all(markers.markers.map(function(marker){return marker.weather;})).then(function(weathers){
-                    console.log(localStorage.getItem("weathers"));
+                    console.log(weathers);
                     localStorage.setItem("weathers",JSON.stringify(weathers));
                     for (var i = 0; i < weathers.length; i++) {
                         if(CONFIG.APP.WEATHER[weathers[i].weather[0].main]){
@@ -54,19 +54,20 @@
                         weathers[i].main.temp = Math.round((weathers[i].main.temp-273)*10)/10+' °C';
                         markers.markers[i].weather = weathers[i];
                     }
-            });
+                });
 
             }else{
                 var items =  JSON.parse(localStorage.getItem("weathers"));
-                console.log(items);
                 for (var i = 0; i < items.length; i++) {
-                    if(CONFIG.APP.WEATHER[items[i].weather[0].main]){
-                        items[i].weather[0].main = CONFIG.APP.WEATHER[items[i].weather[0].main];
-                    }else{
-                        items[i].weather[0].main = CONFIG.APP.WEATHER["UNKNOWN"];
+                    if(items[i].weather){
+                        if(CONFIG.APP.WEATHER[items[i].weather[0].main]){
+                            items[i].weather[0].main = CONFIG.APP.WEATHER[items[i].weather[0].main];
+                        }else{
+                            items[i].weather[0].main = CONFIG.APP.WEATHER["UNKNOWN"];
+                        }
+                        items[i].main.temp = Math.round((items[i].main.temp-273)*10)/10+' °C';
+                        markers.markers[i].weather = items[i];
                     }
-                    items[i].main.temp = Math.round((items[i].main.temp-273)*10)/10+' °C';
-                    markers.markers[i].weather = items[i];
                 }
             }
 

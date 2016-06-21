@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(markerService,uiGmapGoogleMapApi,$log ) {
+  function MainController(markerService,uiGmapGoogleMapApi,$log,$twitterApi ) {
     var vm = this;
     vm.markers = markerService.markers;
     vm.map = {
@@ -21,8 +21,18 @@
       $log.debug("maps : ",maps);
     });
 
-    vm.onClick = function(marker, eventName, model) {
+    vm.onClick = onClick;
+
+    function onClick(marker, eventName, model) {
         model.show = !model.show;
+    }
+
+    vm.myClick = function (){
+        $twitterApi.searchTweets("%23meteoparis").then(function(data) {
+          console.log(data);
+        }, function(error) {
+          console.log('err: ' + error);
+        });
     }
 
   }
